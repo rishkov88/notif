@@ -47,5 +47,5 @@ workflows:
     jobs:
       - say-hello
       - notify:
-          context: slack-secrets
+          context: ${SLACK_ACCESS_TOKEN}                #slack-secrets
 
