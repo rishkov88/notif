@@ -2,9 +2,29 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+orbs:
+  slack: circleci/slack@4.1
+
+
+jobs:
+
+  notify:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - slack/notify:
+          custom: |
+              blocks:
+                  type: section
+                  fields:
+                      type: plain_text
+                      text: "<<<<<<message de notif>>>>>"
+                      emoji: true
+          event: always
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
-jobs:
+
   say-hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -24,3 +44,6 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - notify:
+          context: slack-secrets
+
