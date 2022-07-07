@@ -41,7 +41,7 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-
+      - run: return 1
 workflows:
   say-hello-workflow:
     jobs:
