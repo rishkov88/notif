@@ -21,7 +21,7 @@ jobs:
                   "fields": [
                     {
                       "type": "plain_text",
-                      "text": "*This is a text notification*",
+                      "text": "Section de notification",
                       "emoji": true
                     }
                   ]
@@ -46,8 +46,6 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - notify:
-          context:
-            - slack-notif
+      - notify
 
 
