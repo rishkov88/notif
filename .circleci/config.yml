@@ -47,5 +47,5 @@ workflows:
     jobs:
       - say-hello
       - notify
- #         context: "xoxb-3403002442500-3766582281222-KyOXMcONOLQ0iyu75lgnerMA"               #slack-secrets
+          context: slack-secrets
 
