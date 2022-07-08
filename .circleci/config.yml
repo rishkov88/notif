@@ -48,6 +48,7 @@ workflows:
       - say-hello
       - notify
           context: 
+            - org-global
             - slack-notif
 
 
