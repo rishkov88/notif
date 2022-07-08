@@ -47,5 +47,7 @@ workflows:
     jobs:
       - say-hello
       - notify
-          context: slack-notif
+          context: 
+            - slack-notif
+
 
